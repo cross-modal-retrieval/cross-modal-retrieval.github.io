@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RoboFlamingo | Vision-Language Foundation Models as Effective Robot Imitators</title>
+
+    <script>
+        var task_map = {
+            "simple-object-manipulation": "simple_object_manipulation",
+            "visual-goal-reaching": "visual_goal_reaching",
+            "novel-concept-grounding": "novel_concept_grounding",
+            "one-shot-video-imitation": "one_shot_video_imitation",
+            "visual-constraint-satisfaction": "visual_constraint_satisfaction",
+            "visual-reasoning": "visual_reasoning"
+        };
+
+        function updateDemoVideo(category) {
+            // var demo = document.getElementById("single-menu-demos").value;
+            var task = document.getElementById(category + "-menu-tasks").value;
+            var inst = document.getElementById(category + "-menu-instances").value;
+
+            console.log(task_map[category], task, inst)
+
+            var video = document.getElementById(category + "-single-task-video");
+            video.src = "assets/videos/demos/" +
+                task_map[category] +
+                "/" +
+                task +
+                "/" +
+                inst +
+                ".mp4";
+            video.playbackRate = 2.0;
+            video.play();
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="./static/css/academicons.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<header style="text-align: center;">
+<img src="assets/images/logo.png" alt="RoboFlamingo" width="20%" >
+</header>
+
+<section class="hero">
+<!--    <div class="hero-body">-->
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title">Vision-Language Foundation Models as Effective Robot Imitators</h1>
+<!--                    <h3 class="title is-4 conference-authors"><a target="_blank" href="https://arxiv.org/abs/2311.01378">Arxiv Preprint</a></h3>-->
+                    <div class="is-size-5 publication-authors">
+            <span class="author-block">
+                <a target="_blank" href="https://scholar.google.com/citations?user=laOWyTQAAAAJ">Xinghang&#160;Li</a><sup>1 2&dagger;</sup>,
+                <a target="_blank" href="https://minghuanliu.com/">Minghuan&#160;Liu</a><sup>1 3&dagger;</sup>,
+                <a target="_blank"
+                   href="https://zhanghanbo.github.io/">Hanbo&#160;Zhang</a><sup>1</sup>,
+                <a target="_blank" href="https://majiker.github.io/">Cunjun&#160;Yu</a><sup>4</sup>,
+                <a target="_blank">Jie&#160;Xu</a><sup>1</sup>,
+                <br>
+                <a target="_blank"
+                   href="https://scholar.google.com/citations?&user=7u0TYgIAAAAJ">Hongtao&#160;Wu</a><sup>1</sup>,
+                <a target="_blank" href="http://tensorlab.cms.caltech.edu/users/anima/">Chilam&#160;Cheang</a><sup>1</sup>,
+                <a target="_blank" href="https://scholar.google.com/citations?user=-dWGUzoAAAAJ">Ya&#160;Jing</a><sup>1</sup>,
+                <a target="_blank" href="https://wnzhang.net">Weinan&#160;Zhang</a><sup>3</sup>,
+                <a target="_blank" href="https://scholar.google.com.hk/citations?user=HXnkIkwAAAAJ">Huaping&#160;Liu</a><sup>2</sup>,
+                <a target="_blank" href="http://scholar.google.com/citations?user=nTl5mSwAAAAJ">Hang&#160;Li</a><sup>1</sup>,
+                <a target="_blank" href="https://www.taokong.org/">Tao&#160;Kong</a><sup>1</sup>
+            </span>
+                    </div>
+
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block"><sup>1</sup>ByteDance Research, </span>
+                        <span class="author-block"><sup>2</sup>Tsinghua University, </span>
+                        <span class="author-block"><sup>3</sup>Shanghai Jiao Tong University, </span>
+                        <span class="author-block"><sup>4</sup>National University of Singapore </span>
+                    </div>
+
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block"><sup>&dagger;</sup>Equal Contribution</span>
+                    </div>
+
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block">Work done during the first authors' internship at ByteDance</span>
+                    </div>
+
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+                            <!-- TODO PDF Link. -->
+                            <span class="link-block">
+                <a target="_blank" href="http://arxiv.org/abs/2311.01378"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+                            <!-- Code Link. -->
+                            <span class="link-block">
+                <a target="_blank" href="https://github.com/RoboFlamingo/RoboFlamingo"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+                <a target="_blank" href="https://huggingface.co/roboflamingo/RoboFlamingo"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-robot"></i>
+                  </span>
+                  <span>Models</span>
+                </a>
+                <a target="_blank" href="https://github.com/mlfoundations/open_flamingo"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fa fa-network-wired"></i>
+                  </span>
+                  <span>OpenFlamingo</span>
+                </a>
+                <a target="_blank" href="https://github.com/mees/calvin"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-database"></i>
+                  </span>
+                  <span>CALVIN</span>
+                </a>
+              </span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--    </div>-->
+</section>
+
+<section class="hero is-light is-small">
+    <div class="hero-body">
+        <div class="container">
+            <div id="results-carousel" class="carousel results-carousel">
+                <div class="item item-1">
+                    <video poster="" id="sweep_without_exceeding" autoplay controls muted loop height="90%"
+                           playbackRate=2.0>
+                        <source src="assets/videos/examples/0.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-2">
+                    <video poster="" id="sweep_without_touching" autoplay controls muted loop height="90%"
+                           playbackRate=2.0>
+                        <source src="assets/videos/examples/2.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-3">
+                    <video poster="" id="rotate" autoplay controls muted loop height="90%">
+                        <source src="assets/videos/examples/5.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-4">
+                    <video poster="" id="scene_understanding" autoplay controls muted loop height="90%">
+                        <source src="assets/videos/examples/11.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-5">
+                    <video poster="" id="simple_manipulation" autoplay controls muted loop height="90%">
+                        <source src="assets/videos/examples/128.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-6">
+                    <video poster="" id="novel_adj" autoplay controls muted loop height="90%">
+                        <source src="assets/videos/examples/135.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-7">
+                    <video poster="" id="novel_adj_and_noun" autoplay controls muted loop height="90%">
+                        <source src="assets/videos/examples/137.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-8">
+                    <video poster="" id="novel_noun" autoplay controls muted loop height="90%">
+                        <source src="assets/videos/examples/254.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-9">
+                    <video poster="" id="twist" autoplay controls muted loop height="90%">
+                        <source src="assets/videos/examples/277.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-10">
+                    <video poster="" id="follow_motion" autoplay controls muted loop height="90%">
+                        <source src="assets/videos/examples/629.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-11">
+                    <video poster="" id="follow_order" autoplay controls muted loop height="90%">
+                        <source src="assets/videos/examples/750.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column">
+                <h2 class="title is-3">Abstract</h2>
+                <div class="content has-text-justified">
+                    <p style="font-size: 125%">
+                        Recent progress in vision language foundation models has shown their ability to understand multimodal data and resolve complicated vision language tasks, including robotics manipulation.
+                        We seek a straightforward way of making use of existing vision-language models (VLMs) with simple fine-tuning on robotics data.
+                        To this end, we derive a simple and novel vision-language manipulation framework, dubbed <i><strong>RoboFlamingo</strong></i>, built upon the open-source VLMs, <a href="https://github.com/mlfoundations/open_flamingo">OpenFlamingo</a>. Unlike prior works, RoboFlamingo utilizes pre-trained VLMs for single-step vision-language comprehension, models sequential history information with an explicit policy head, and is slightly fine-tuned by imitation learning only on language-conditioned manipulation datasets.
+                        Such a decomposition provides RoboFlamingo the flexibility for open-loop control and deployment on low-performance platforms.
+                        By exceeding the state-of-the-art performance with a large margin on the tested benchmark, we show RoboFlamingo can be an effective and competitive alternative to adapt VLMs to robot control.
+                        Our extensive experimental results also reveal several interesting conclusions regarding the behavior of different pre-trained VLMs on manipulation tasks.
+                        <i><strong>RoboFlamingo can be trained or evaluated on a single GPU server</strong></i>, and we believe RoboFlamingo has the potential to be a cost-effective and easy-to-use solution for robotics manipulation, empowering everyone with the ability to fine-tune their own robotics policy.
+                    </p>
+                    <img src="assets/images/comparison.png" class="interpolation-image"
+                    alt="" style="display: block; margin-left: auto; margin-right: auto; width: 80%;"/>
+                    <p align="center" style="font-weight: bold; font-size: 125%"> Comparison among RoboFlamingo and existing vision-language manipulation solutions.</p>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Model-->
+<section class="section">
+    <div class="container is-max-widescreen">
+        <div class="rows">
+            <div class="rows is-centered ">
+                <div class="row is-full-width">
+                    <h2 class="title is-3"><span class="dvima">RoboFlamingo</span></h2>
+                    <br>
+                    <br>
+                    <img src="assets/images/framework.png" class="interpolation-image"
+                    alt="" style="display: block; margin-left: auto; margin-right: auto; width: 80%;"/>
+                    <br>
+                    <br>
+                    <span style="font-size: 125%">
+                <span style="font-weight: bold">The proposed RoboFlamingo framework.</span> The output from the feature fusion decoder is trained as the representation of the vision observation and language instruction, which will be further translated into low-level control signals. 
+                To achieve this, we simply adopt an additional <span style="font-weight: bold">policy head</span> to predict the action, e.g., the 7 DoF end-effector pose and gripper status.
+                We test various strategies to model the historical observation sequences and behave as the policy head, e.g., a long short-term memory (LSTM) network with an MLP for the final prediction; a decoder-only transformer with an predictive MLP; or a single MLP that only models single-step information, etc.</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container is-max-widescreen">
+
+        <div class="rows">
+            <div class="rows is-centered ">
+                <div class="row is-full-width">
+                    <h2 class="title is-3"><span
+                            class="dvima"><a href="http://calvin.cs.uni-freiburg.de/">The Calvin Benchmark</a></span></h2>
+                    <div style="font-size: 125%; margin-bottom:-130px; z-index: 2;">
+                        <span style="font-size: 100%;">
+                            CALVIN (Composing Actions from Language and Vision) is an open-source simulated benchmark to learn long-horizon language-conditioned tasks. CALVIN tasks are more complex in terms of sequence length, action space, and language than existing vision-and-language task datasets and supports flexible specification of sensor suites. See their <a href="http://calvin.cs.uni-freiburg.de/">website</a> for more details.
+                        </span>
+                    </div>
+                    <div style="position: relative; z-index: -100; margin-bottom:-30px; ">
+                    <video autoplay="" muted="" loop="" id="awesomeVideo">
+                        <source src="assets/videos/calvin-banner.mp4" type="video/mp4">
+                    </video>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!--Experiments-->
+<section class="section">
+    <div class="container is-max-widescreen">
+        <div class="rows">
+            <div class="rows is-centered ">
+                <div class="row is-full-width" style="margin-top:-160px;">
+                    <h2 class="title is-3"><span
+                            class="dvima">Experiments</span></h2>
+
+                    <p style="font-size: 125%">
+                        We investigate three main questions during experiments:
+                        <ul style="font-size: 125%; padding-left: 5%">
+                        <li><span style="font-weight: bold;">(1) Effectiveness.</span> We wonder the imitation learning performance of RoboFlamingo by training it on the given demonstration data. </li>
+                        <li><span style="font-weight: bold;">(2) Zero-shot Generalization.</span> We focus on generalization on unseen tasks. In other words, we wonder how the model will behave given unseen vision contexts like different objects, even with unseen instructions.</li> 
+                        <li><span style="font-weight: bold;">(3) Ablation Studies.</span> We further explore the essential factors that matter in adapting VLMs to robot control policy in the framework of RoboFlamingo.</li>
+                    </ul>
+                    </p>
+                    <br>
+                    <br>
+
+                    <h3 class="title is-4"><span
+                            class="dvima">(1) Imitation Performance</span></h3>
+
+                    <img src="assets/images/evaluation.png" class="interpolation-image"
+                         alt="" style="display: block; margin-left: auto; margin-right: auto; width: 80%;"/>
+                    <br>
+                    <span style="font-size: 125%">
+                        <span style="font-weight: bold">Table1: The imitation performance on various settings, all results are reported using the best-behaved model checkpoints.</span> <i>(Full)</i> and <i>(Lang)</i> denote if the model is trained using unpaired vision data (i.e., vision data without language pairs); <i>Freeze-emb</i> refers to freezing the embedding layer of the fusion decoder; <i>Enriched</i> denote using GPT-4 enriched instructions. The <span style="color: #A0A0A0">gray</span> rows denote numerical results evaluated by our re-trained model. We re-implement RT-1 and take the original code of HULC provided by <a href="https://github.com/lukashermann/hulc">Mees et al</a>. All other results are reported by <a href="https://github.com/lukashermann/hulc">Mees et al</a>.
+                    </span>
+                    <br>
+                    <br>
+                    <br>
+
+                    <h3 class="title is-4"><span
+                        class="dvima">(2) Zero-shot Generalization</span></h3>
+                    <p style="font-size: 125%">
+                        we evaluate two aspects of generalization for our RoboFlamingo: vision and language. 
+
+                        For vision generalization, we train models on splits A, B, and C and test on split D, which presents a different vision context. Our method significantly outperforms baselines in this vision generalization scenario (<i>ABC &#8594; D</i>), as shown in the above Table 1. Regarding language generalization, we enrich the language setting by generating 50 synonymous instructions for each task using GPT-4. We then randomly sample instructions during evaluation. Our method exhibits superior performance compared to all baselines in this language generalization setting.
+
+                        It's important to note that the success rate of our method on subsequent tasks shows a more noticeable drop compared to HULC. This may be due to our approach directly using word tokens as input during training, which can result in larger variations for synonymous sentences compared to HULC using a frozen sentence model for embedding instructions. To address this, we freeze the embedding layer of the feature fusion decoder in our method, leading to improved generalization and reduced performance drop.
+                    </p>
+                    <br>
+                    <br>
+                    <h3 class="title is-4"><span
+                            class="dvima">(3) Ablation Studies</span></h3>
+                    <p style="font-size: 125%">
+                        We conduct ablation studies for RoboFlamingo to answer the following questions:
+                        <ul style="font-size: 125%; padding-left: 5%">
+                            <li>
+                                1. How does RoboFlamingo perform with different heads? 
+                            </li>
+                            <li>
+                                2. Does vision-language pre-training improve downstream robotic tasks? 
+                            </li>
+                            <li>
+                                3. How do critical factors in vision-language pre-training affect robotic tasks?
+                            </li>
+                        </ul>
+                    </p>
+                    <br>
+                    <img src="assets/images/vlms.png" class="interpolation-image"
+                    alt="" style="display: block; margin-left: auto; margin-right: auto; width: 80%;"/>
+                    <br>
+                    <span style="font-size: 125%">
+                        <span style="font-weight: bold">Table2: Variants of VLMs tested.</span> <i>Pre-train</i> denotes the original performance of VLM on the pre-training VL dataset, <i>Best Avg. Len.</i> denotes the best performance of the average success length of VLMs within 5 epochs, and <i>Mean Avg. Len.</i> denotes the mean performance of the average success length of VLMs of last 3 epochs on CALVIN.</a>.
+                    <br>
+                    <br>
+                    <div class="columns">
+                        <div class="column has-text-left">
+                            <h3 class="title is-5">(a) Various policy head</h3>
+                            <img src="assets/images/policy_head.png" class="interpolation-image"
+                         alt="" style="display: block; margin-left: auto; margin-right: auto"/>
+                        </div>
+
+                        <div class="column has-text-left">
+                            <h3 class="title is-5">(b) Different training paradigms</h3>
+                            <img src="assets/images/train_abl.png" class="interpolation-image"
+                         alt="" style="display: block; margin-left: auto; margin-right: auto"/>
+                        </div>
+
+                        <div class="column has-text-left">
+                            <h3 class="title is-5">(c) Open loop control</h3>
+                            <img src="assets/images/open_loop.png" class="interpolation-image"
+                         alt="" style="display: block; margin-left: auto; margin-right: auto"/>
+                        </div>
+                    </div>
+                    <br>
+                    <span style="font-size: 100%">
+                        We observe also that 1) policy heads with history encoding performs the best and <i>GPT</i> and <i>LSTM</i> behaves similar under the framework of our RoboFlamingo; 2) tuning on the VL model itself on robotic tasks is indispensable due to limited capacity of the policy head and vision-langauge pre-training crucially improves the downstream robotic manipulation by a large margin; and 3) a larger model which usually results in better VL performance, achieves much higher performance, indicating that a larger VLM can be more data-efficient. 
+                    </span>
+
+                    <br>
+                    <br>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container is-max-widescreen">
+
+        <div class="rows">
+            <div class="rows is-centered ">
+                <div class="row is-full-width">
+                    <h2 class="title is-3"><span
+                            class="dvima">Conclusion and Future Work</span></h2>
+                    <div style="font-size: 125%;">
+                        <span style="font-size: 100%;">
+                            This paper explores the potential of pre-trained vision-language models in advancing language-conditioned
+                            robotic manipulation. Our proposed RoboFlamingo, based on the pre-trained OpenFlamingo model, showcases state-of-the-art
+                            performance on a benchmark dataset. Moreover, our experimental findings highlight the benefits of pre-trained models in terms of data efficiency and zero-shot generalization ability.
+                            This research contributes to the ongoing efforts to develop intelligent robotic systems that can seamlessly understand and respond to human language instructions, paving the way for more intuitive and efficient human-robot collaboration. Due to the lack of real-robot data, this paper does not deploy on real-world robotics. 
+                            To our delight, recent progress on large-scale real robotics data (<a href="https://robotics-transformer-x.github.io/">Open X-Embodiment</a>) has shown the potential of fine-tuning large VLMs for real robots, and the most interesting future work is to see how RoboFlamingo will behave in real-world tasks combined with such amount of data.
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section" id="BibTeX">
+    <div class="container is-max-widescreen content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>@article{li2023vision,
+  title     = {Vision-Language Foundation Models as Effective Robot Imitators},
+  author    = {Li, Xinghang and Liu, Minghuan and Zhang, Hanbo and Yu, Cunjun and Xu, Jie and Wu, Hongtao and Cheang, Chilam and Jing, Ya and Zhang, Weinan and Liu, Huaping and Li, Hang and Kong, Tao},
+  journal={arXiv preprint arXiv:2311.01378},
+  year={2023}
+}</code></pre>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column">
+                <div class="content has-text-centered">
+                    <p>
+                        Website template borrowed from <a
+                            href="https://vimalabs.github.io/">VIMA</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
