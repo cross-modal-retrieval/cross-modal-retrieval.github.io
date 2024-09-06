@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>RoboFlamingo | Vision-Language Foundation Models as Effective Robot Imitators</title>
+    <title>cross-modal-retrieval | Vision-Language Foundation Models as Effective Robot Imitators</title>
 
     <script>
         var task_map = {
@@ -56,7 +56,7 @@
 <body>
 
 <header style="text-align: center;">
-<img src="assets/images/logo.png" alt="RoboFlamingo" width="20%" >
+<img src="assets/images/logo.png" alt="cross-modal-retrieval" width="20%" >
 </header>
 
 <section class="hero">
@@ -115,14 +115,14 @@
               </span>
                             <!-- Code Link. -->
                             <span class="link-block">
-                <a target="_blank" href="https://github.com/RoboFlamingo/RoboFlamingo"
+                <a target="_blank" href="https://github.com/cross-modal-retrieval/cross-modal-retrieval"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
                   <span>Code</span>
                 </a>
-                <a target="_blank" href="https://huggingface.co/roboflamingo/RoboFlamingo"
+                <a target="_blank" href="https://huggingface.co/cross-modal-retrieval/cross-modal-retrieval"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-robot"></i>
@@ -241,15 +241,15 @@
                     <p style="font-size: 125%">
                         Recent progress in vision language foundation models has shown their ability to understand multimodal data and resolve complicated vision language tasks, including robotics manipulation.
                         We seek a straightforward way of making use of existing vision-language models (VLMs) with simple fine-tuning on robotics data.
-                        To this end, we derive a simple and novel vision-language manipulation framework, dubbed <i><strong>RoboFlamingo</strong></i>, built upon the open-source VLMs, <a href="https://github.com/mlfoundations/open_flamingo">OpenFlamingo</a>. Unlike prior works, RoboFlamingo utilizes pre-trained VLMs for single-step vision-language comprehension, models sequential history information with an explicit policy head, and is slightly fine-tuned by imitation learning only on language-conditioned manipulation datasets.
-                        Such a decomposition provides RoboFlamingo the flexibility for open-loop control and deployment on low-performance platforms.
-                        By exceeding the state-of-the-art performance with a large margin on the tested benchmark, we show RoboFlamingo can be an effective and competitive alternative to adapt VLMs to robot control.
+                        To this end, we derive a simple and novel vision-language manipulation framework, dubbed <i><strong>cross-modal-retrieval</strong></i>, built upon the open-source VLMs, <a href="https://github.com/mlfoundations/open_flamingo">OpenFlamingo</a>. Unlike prior works, cross-modal-retrieval utilizes pre-trained VLMs for single-step vision-language comprehension, models sequential history information with an explicit policy head, and is slightly fine-tuned by imitation learning only on language-conditioned manipulation datasets.
+                        Such a decomposition provides cross-modal-retrieval the flexibility for open-loop control and deployment on low-performance platforms.
+                        By exceeding the state-of-the-art performance with a large margin on the tested benchmark, we show cross-modal-retrieval can be an effective and competitive alternative to adapt VLMs to robot control.
                         Our extensive experimental results also reveal several interesting conclusions regarding the behavior of different pre-trained VLMs on manipulation tasks.
-                        <i><strong>RoboFlamingo can be trained or evaluated on a single GPU server</strong></i>, and we believe RoboFlamingo has the potential to be a cost-effective and easy-to-use solution for robotics manipulation, empowering everyone with the ability to fine-tune their own robotics policy.
+                        <i><strong>cross-modal-retrieval can be trained or evaluated on a single GPU server</strong></i>, and we believe cross-modal-retrieval has the potential to be a cost-effective and easy-to-use solution for robotics manipulation, empowering everyone with the ability to fine-tune their own robotics policy.
                     </p>
                     <img src="assets/images/comparison.png" class="interpolation-image"
                     alt="" style="display: block; margin-left: auto; margin-right: auto; width: 80%;"/>
-                    <p align="center" style="font-weight: bold; font-size: 125%"> Comparison among RoboFlamingo and existing vision-language manipulation solutions.</p>
+                    <p align="center" style="font-weight: bold; font-size: 125%"> Comparison among cross-modal-retrieval and existing vision-language manipulation solutions.</p>
                     <br>
                 </div>
             </div>
@@ -263,7 +263,7 @@
         <div class="rows">
             <div class="rows is-centered ">
                 <div class="row is-full-width">
-                    <h2 class="title is-3"><span class="dvima">RoboFlamingo</span></h2>
+                    <h2 class="title is-3"><span class="dvima">cross-modal-retrieval</span></h2>
                     <br>
                     <br>
                     <img src="assets/images/framework.png" class="interpolation-image"
@@ -271,7 +271,7 @@
                     <br>
                     <br>
                     <span style="font-size: 125%">
-                <span style="font-weight: bold">The proposed RoboFlamingo framework.</span> The output from the feature fusion decoder is trained as the representation of the vision observation and language instruction, which will be further translated into low-level control signals. 
+                <span style="font-weight: bold">The proposed cross-modal-retrieval framework.</span> The output from the feature fusion decoder is trained as the representation of the vision observation and language instruction, which will be further translated into low-level control signals. 
                 To achieve this, we simply adopt an additional <span style="font-weight: bold">policy head</span> to predict the action, e.g., the 7 DoF end-effector pose and gripper status.
                 We test various strategies to model the historical observation sequences and behave as the policy head, e.g., a long short-term memory (LSTM) network with an MLP for the final prediction; a decoder-only transformer with an predictive MLP; or a single MLP that only models single-step information, etc.</span>
                 </div>
@@ -318,9 +318,9 @@
                     <p style="font-size: 125%">
                         We investigate three main questions during experiments:
                         <ul style="font-size: 125%; padding-left: 5%">
-                        <li><span style="font-weight: bold;">(1) Effectiveness.</span> We wonder the imitation learning performance of RoboFlamingo by training it on the given demonstration data. </li>
+                        <li><span style="font-weight: bold;">(1) Effectiveness.</span> We wonder the imitation learning performance of cross-modal-retrieval by training it on the given demonstration data. </li>
                         <li><span style="font-weight: bold;">(2) Zero-shot Generalization.</span> We focus on generalization on unseen tasks. In other words, we wonder how the model will behave given unseen vision contexts like different objects, even with unseen instructions.</li> 
-                        <li><span style="font-weight: bold;">(3) Ablation Studies.</span> We further explore the essential factors that matter in adapting VLMs to robot control policy in the framework of RoboFlamingo.</li>
+                        <li><span style="font-weight: bold;">(3) Ablation Studies.</span> We further explore the essential factors that matter in adapting VLMs to robot control policy in the framework of cross-modal-retrieval.</li>
                     </ul>
                     </p>
                     <br>
@@ -342,7 +342,7 @@
                     <h3 class="title is-4"><span
                         class="dvima">(2) Zero-shot Generalization</span></h3>
                     <p style="font-size: 125%">
-                        we evaluate two aspects of generalization for our RoboFlamingo: vision and language. 
+                        we evaluate two aspects of generalization for our cross-modal-retrieval: vision and language. 
 
                         For vision generalization, we train models on splits A, B, and C and test on split D, which presents a different vision context. Our method significantly outperforms baselines in this vision generalization scenario (<i>ABC &#8594; D</i>), as shown in the above Table 1. Regarding language generalization, we enrich the language setting by generating 50 synonymous instructions for each task using GPT-4. We then randomly sample instructions during evaluation. Our method exhibits superior performance compared to all baselines in this language generalization setting.
 
@@ -353,10 +353,10 @@
                     <h3 class="title is-4"><span
                             class="dvima">(3) Ablation Studies</span></h3>
                     <p style="font-size: 125%">
-                        We conduct ablation studies for RoboFlamingo to answer the following questions:
+                        We conduct ablation studies for cross-modal-retrieval to answer the following questions:
                         <ul style="font-size: 125%; padding-left: 5%">
                             <li>
-                                1. How does RoboFlamingo perform with different heads? 
+                                1. How does cross-modal-retrieval perform with different heads? 
                             </li>
                             <li>
                                 2. Does vision-language pre-training improve downstream robotic tasks? 
@@ -395,7 +395,7 @@
                     </div>
                     <br>
                     <span style="font-size: 100%">
-                        We observe also that 1) policy heads with history encoding performs the best and <i>GPT</i> and <i>LSTM</i> behaves similar under the framework of our RoboFlamingo; 2) tuning on the VL model itself on robotic tasks is indispensable due to limited capacity of the policy head and vision-langauge pre-training crucially improves the downstream robotic manipulation by a large margin; and 3) a larger model which usually results in better VL performance, achieves much higher performance, indicating that a larger VLM can be more data-efficient. 
+                        We observe also that 1) policy heads with history encoding performs the best and <i>GPT</i> and <i>LSTM</i> behaves similar under the framework of our cross-modal-retrieval; 2) tuning on the VL model itself on robotic tasks is indispensable due to limited capacity of the policy head and vision-langauge pre-training crucially improves the downstream robotic manipulation by a large margin; and 3) a larger model which usually results in better VL performance, achieves much higher performance, indicating that a larger VLM can be more data-efficient. 
                     </span>
 
                     <br>
@@ -418,10 +418,10 @@
                     <div style="font-size: 125%;">
                         <span style="font-size: 100%;">
                             This paper explores the potential of pre-trained vision-language models in advancing language-conditioned
-                            robotic manipulation. Our proposed RoboFlamingo, based on the pre-trained OpenFlamingo model, showcases state-of-the-art
+                            robotic manipulation. Our proposed cross-modal-retrieval, based on the pre-trained OpenFlamingo model, showcases state-of-the-art
                             performance on a benchmark dataset. Moreover, our experimental findings highlight the benefits of pre-trained models in terms of data efficiency and zero-shot generalization ability.
                             This research contributes to the ongoing efforts to develop intelligent robotic systems that can seamlessly understand and respond to human language instructions, paving the way for more intuitive and efficient human-robot collaboration. Due to the lack of real-robot data, this paper does not deploy on real-world robotics. 
-                            To our delight, recent progress on large-scale real robotics data (<a href="https://robotics-transformer-x.github.io/">Open X-Embodiment</a>) has shown the potential of fine-tuning large VLMs for real robots, and the most interesting future work is to see how RoboFlamingo will behave in real-world tasks combined with such amount of data.
+                            To our delight, recent progress on large-scale real robotics data (<a href="https://robotics-transformer-x.github.io/">Open X-Embodiment</a>) has shown the potential of fine-tuning large VLMs for real robots, and the most interesting future work is to see how cross-modal-retrieval will behave in real-world tasks combined with such amount of data.
                         </span>
                     </div>
                 </div>
