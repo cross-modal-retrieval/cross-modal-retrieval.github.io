@@ -222,7 +222,7 @@
                     <img src="assets/images/UR.jpg" class="interpolation-image"
                          alt="" style="display: block; margin-left: auto; margin-right: auto; width: 100%;"/>
                     <br>
-                    <span style="font-size: 125%">
+                    <span style="font-size: 100%">
                         <p align="center" style="font-weight: bold; font-size: 130%">The evolutionary tree of representative unsupervised real-value retrieval methods.</p>
                     </span>
                     <br>
@@ -233,7 +233,7 @@
                     <img src="assets/images/SR.png" class="interpolation-image"
                          alt="" style="display: block; margin-left: auto; margin-right: auto; width: 100%;"/>
                     <br>
-                    <span style="font-size: 125%">
+                    <span style="font-size: 100%">
                         <p align="center" style="font-weight: bold; font-size: 130%">The evolutionary tree of representative supervised real-value retrieval methods.</p>
                     </span>
                     <br>
@@ -244,7 +244,7 @@
                     <img src="assets/images/UH.png" class="interpolation-image"
                          alt="" style="display: block; margin-left: auto; margin-right: auto; width: 100%;"/>
                     <br>
-                    <span style="font-size: 125%">
+                    <span style="font-size: 100%">
                         <p align="center" style="font-weight: bold; font-size: 130%">The evolutionary tree of representative unsupervised hashing retrieval methods.</p>
                     </span>
                     <br>
@@ -255,7 +255,7 @@
                     <img src="assets/images/SH.jpg" class="interpolation-image"
                          alt="" style="display: block; margin-left: auto; margin-right: auto; width: 100%;"/>
                     <br>
-                    <span style="font-size: 125%">
+                    <span style="font-size: 100%">
                         <p align="center" style="font-weight: bold; font-size: 130%">The evolutionary tree of representative supervised hashing retrieval methods.</p>
                     </span>
                     <br>
@@ -266,98 +266,17 @@
                     <img src="assets/images/SS.jpg" class="interpolation-image"
                          alt="" style="display: block; margin-left: auto; margin-right: auto; width: 60%;"/>
                     <br>
-                    <span style="font-size: 125%">
+                    <span style="font-size: 100%">
                         <p align="center" style="font-weight: bold; font-size: 130%">A compilation of representative methods for cross-modal retrieval under special scenarios.</p>
                     </span>
                     <br>
                     <br>
-                    
-                    <h3 class="title is-4"><span
-                        class="dvima">(2) Zero-shot Generalization</span></h3>
-                    <p style="font-size: 125%">
-                        we evaluate two aspects of generalization for our cross-modal-retrieval: vision and language. 
-
-                        For vision generalization, we train models on splits A, B, and C and test on split D, which presents a different vision context. Our method significantly outperforms baselines in this vision generalization scenario (<i>ABC &#8594; D</i>), as shown in the above Table 1. Regarding language generalization, we enrich the language setting by generating 50 synonymous instructions for each task using GPT-4. We then randomly sample instructions during evaluation. Our method exhibits superior performance compared to all baselines in this language generalization setting.
-
-                        It's important to note that the success rate of our method on subsequent tasks shows a more noticeable drop compared to HULC. This may be due to our approach directly using word tokens as input during training, which can result in larger variations for synonymous sentences compared to HULC using a frozen sentence model for embedding instructions. To address this, we freeze the embedding layer of the feature fusion decoder in our method, leading to improved generalization and reduced performance drop.
-                    </p>
-                    <br>
-                    <br>
-                    <h3 class="title is-4"><span
-                            class="dvima">(3) Ablation Studies</span></h3>
-                    <p style="font-size: 125%">
-                        We conduct ablation studies for cross-modal-retrieval to answer the following questions:
-                        <ul style="font-size: 125%; padding-left: 5%">
-                            <li>
-                                1. How does cross-modal-retrieval perform with different heads? 
-                            </li>
-                            <li>
-                                2. Does vision-language pre-training improve downstream robotic tasks? 
-                            </li>
-                            <li>
-                                3. How do critical factors in vision-language pre-training affect robotic tasks?
-                            </li>
-                        </ul>
-                    </p>
-                    <br>
-                    <img src="assets/images/vlms.png" class="interpolation-image"
-                    alt="" style="display: block; margin-left: auto; margin-right: auto; width: 80%;"/>
-                    <br>
-                    <span style="font-size: 125%">
-                        <span style="font-weight: bold">Table2: Variants of VLMs tested.</span> <i>Pre-train</i> denotes the original performance of VLM on the pre-training VL dataset, <i>Best Avg. Len.</i> denotes the best performance of the average success length of VLMs within 5 epochs, and <i>Mean Avg. Len.</i> denotes the mean performance of the average success length of VLMs of last 3 epochs on CALVIN.</a>.
-                    <br>
-                    <br>
-                    <div class="columns">
-                        <div class="column has-text-left">
-                            <h3 class="title is-5">(a) Various policy head</h3>
-                            <img src="assets/images/policy_head.png" class="interpolation-image"
-                         alt="" style="display: block; margin-left: auto; margin-right: auto"/>
-                        </div>
-
-                        <div class="column has-text-left">
-                            <h3 class="title is-5">(b) Different training paradigms</h3>
-                            <img src="assets/images/train_abl.png" class="interpolation-image"
-                         alt="" style="display: block; margin-left: auto; margin-right: auto"/>
-                        </div>
-
-                        <div class="column has-text-left">
-                            <h3 class="title is-5">(c) Open loop control</h3>
-                            <img src="assets/images/open_loop.png" class="interpolation-image"
-                         alt="" style="display: block; margin-left: auto; margin-right: auto"/>
-                        </div>
-                    </div>
-                    <br>
-                    <span style="font-size: 100%">
-                        We observe also that 1) policy heads with history encoding performs the best and <i>GPT</i> and <i>LSTM</i> behaves similar under the framework of our cross-modal-retrieval; 2) tuning on the VL model itself on robotic tasks is indispensable due to limited capacity of the policy head and vision-langauge pre-training crucially improves the downstream robotic manipulation by a large margin; and 3) a larger model which usually results in better VL performance, achieves much higher performance, indicating that a larger VLM can be more data-efficient. 
-                    </span>
-
-                    <br>
-                    <br>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!--Model-->
-<section class="section">
-    <div class="container is-max-widescreen">
-        <div class="rows">
-            <div class="rows is-centered ">
-                <div class="row is-full-width">
-                    <h2 class="title is-3"><span class="dvima">Text-image cross-modal retrieval</span></h2>
-                    <br>
-                    <img src="assets/images/within_text_image.png" class="interpolation-image"
-                    alt="" style="display: block; margin-left: auto; margin-right: auto; width: 100%;"/>
-                    <br>
-                    <span style="font-size: 130%">
-                <span style="font-weight: bold">A compilation of representative text-image cross-modal retrieval methods. </span>Below, CCA stands for canonical correlation analysis, CNN-RNN stands for convolutional neural network and recurrent neural network, GAN stands for generative adversarial network, GNN stands for graph neural network, and VLP model stands for vision-language pre-training model.</span>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 
 <!--Model-->
 <section class="section">
@@ -371,7 +290,7 @@
                     alt="" style="display: block; margin-left: auto; margin-right: auto; width: 100%;"/>
                     <br>
                     <span style="font-size: 130%">
-                <span style="font-weight: bold">A compilation of representative cross-modal retrieval methods beyond text-image retrieval. </span>The abbreviations used remain consistent with the previous definitions.</span>
+                <span style="font-weight: bold">A compilation of representative cross-modal retrieval methods beyond text-image retrieval. </span></span>
                 </div>
             </div>
         </div>
