@@ -204,45 +204,23 @@
                 <div class="row is-full-width">
                     <h2 class="title is-3"><span
                             class="dvima">Text-image cross-modal retrieval</span></h2>
-                    <img src="assets/images/within_text_image.png" class="interpolation-image"
-                    alt="" style="display: block; margin-left: auto; margin-right: auto; width: 100%;"/>
-                    <br>
-                    <span style="font-size: 130%">
-                    <span style="font-weight: bold">A compilation of representative text-image cross-modal retrieval methods. </span>Below, CCA stands for canonical correlation analysis, CNN-RNN stands for convolutional neural network and recurrent neural network, GAN stands for generative adversarial network, GNN stands for graph neural network, and VLP model stands for vision-language pre-training model.</span>
-                    <br>
                     <p style="font-size: 125%">
-                        To achieve cross-modal retrieval, researchers have proposed an array of common representation learning approaches. 
-                        These methods endeavor to map diverse modal data into a shared, low-dimensional space. 
-                        In this space, data with akin semantics cluster closely, while dissimilar data find themselves distanced. 
-                        Broadly, cross-modal retrieval methods can be categorized into two archetypes based on their data encoding form: real-value retrieval and hashing retrieval. 
-                        Real-value based cross-modal retrieval strives to distill low-dimensional real-value features of multi-modal data. 
-                        While this avenue preserves a richer tapestry of semantic information, it incurs elevated storage costs and computational demands. 
-                        In contrast, hashing-based cross-modal retrieval seeks to distill compressed binary representations of multi-modal data, fitting them into the Hamming space. 
-                        This development enables more efficient retrieval. However, this efficiency comes at the cost of sacrificing some semantic information. 
-                        Each possesses its unique set of advantages and drawbacks, and the decision between the two hinges on the particular requisites and limitations of practical applications.<br>
-
-                        Alongside the data coding form, supervisory information (i.e., manually annotated category labels) is a pivotal determinant for categorizing cross-modal retrieval methods. 
-                        Supervised methods rely on multi-modal data with labels to learn precise cross-modal associations, improving retrieval accuracy by leveraging explicit semantic guidance. 
-                        However, they rely heavily on the availability and quality of multi-modal data labels, which can be expensive and time-consuming to annotate. 
-                        In contrast, unsupervised methods operate without labels, making them more scalable and adaptable but often less effective in capturing fine-grained semantic relationships. 
-                        Despite these differences, both approaches aim to map multi-modal data into a common representation space, with the choice depending on the availability of category labels and the trade-off between accuracy and scalability.<br>
-
-                        Beyond the two universal criteria for ideal retrieval scenarios, cross-modal retrieval under special scenarios should be treated as a separate category due to the unique challenges posed by real-world situations, such as noisy, incomplete, and incremental data. 
-                        Traditional methods alone often fall short in addressing the complexity of these situations, necessitating customized solutions that account for practical constraints.
-                        Nonetheless, approaches in this category can still be classified by the data coding form and supervision type, adhering to real-value/hashing and supervised/unsupervised paradigms. 
-                        This highlights both the specificity and versatility of cross-modal retrieval in these specialized contexts.<br>
-
-                        Combining these considerations, current cross-modal retrieval methods are categorized into five overarching categories: unsupervised real-value retrieval, supervised real-value retrieval, unsupervised hashing retrieval, supervised hashing retrieval, and cross-modal retrieval under special scenarios. 
+                        Current cross-modal retrieval methods are categorized into five overarching categories: unsupervised real-value retrieval, supervised real-value retrieval, unsupervised hashing retrieval, supervised hashing retrieval, and cross-modal retrieval under special scenarios. 
                         Each of these overarching categories is subdivided based on specific technical architectures or scenarios:
                         <ul style="font-size: 125%; padding-left: 5%">
                         <li><span style="font-weight: bold;">(1) The first four overarching categories undergo a meticulous refinement grounded in statistical analysis techniques, deep neural networks, and additional auxiliary architectures. 
                             These encompass Canonical Correlation Analysis (CCA), topic model, dictionary learning, matrix factorization, spectral graph, feature mapping, metric learning, quantization, auto-encoder, Convolutional Neural Network-Recurrent Neural Network (CNNRNN), Generative Adversarial Network (GAN), Graph Neural Network (GNN), Transformer, Vision-Language Pre-training model (VLP model), cross-modal generation, knowledge distillation, and memory network. 
                             Notably, the last three subcategories advance semantic representation learning by introducing auxiliary architectures, building upon the previous subcategories. 
-                            Additionally, methods combining multiple techniques (e.g., GAN, GNN, and TransFormer) are classified into only one subcategory based on their key innovations. [/span]</li>
+                            Additionally, methods combining multiple techniques (e.g., GAN, GNN, and TransFormer) are classified into only one subcategory based on their key innovations. </span></li>
                         <li><span style="font-weight: bold;">(2) The last overarching category, cross-modal retrieval under special scenarios, covers various constrained settings encountered in practical applications: noise-robust retrieval, incomplete retrieval, zero/few-shot retrieval, incremental retrieval, online retrieval, cross-domain retrieval, federated retrieval, composed retrieval, hierarchical/fine-grained retrieval, and adversary against cross-modal retrieval. 
-                            As previously noted, methods in this category still adhere to the refinement criteria established by the first four overarching categories.[/span]</li> 
+                            As previously noted, methods in this category still adhere to the refinement criteria established by the first four overarching categories.</span></li> 
                     </ul>
                     </p>
+                    <img src="assets/images/within_text_image.png" class="interpolation-image"
+                    alt="" style="display: block; margin-left: auto; margin-right: auto; width: 100%;"/>
+                    <br>
+                    <span style="font-size: 130%">
+                    <span style="font-weight: bold">A compilation of representative text-image cross-modal retrieval methods. </span>Below, CCA stands for canonical correlation analysis, CNN-RNN stands for convolutional neural network and recurrent neural network, GAN stands for generative adversarial network, GNN stands for graph neural network, and VLP model stands for vision-language pre-training model.</span>
                     <br>
                     <h3 class="title is-4"><span
                             class="dvima">(1) Imitation Performance</span></h3>
