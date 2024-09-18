@@ -208,25 +208,70 @@
                         Current cross-modal retrieval methods are categorized into five overarching categories: unsupervised real-value retrieval, supervised real-value retrieval, unsupervised hashing retrieval, supervised hashing retrieval, and cross-modal retrieval under special scenarios. 
                         Each of these overarching categories is subdivided based on specific technical architectures or scenarios:
                     </p>
+                    <br>
                     <img src="assets/images/within_text_image.png" class="interpolation-image"
                     alt="" style="display: block; margin-left: auto; margin-right: auto; width: 100%;"/>
                     <br>
                     <span style="font-size: 130%">
                     <span style="font-weight: bold">A compilation of representative text-image cross-modal retrieval methods. </span>Below, CCA stands for canonical correlation analysis, CNN-RNN stands for convolutional neural network and recurrent neural network, GAN stands for generative adversarial network, GNN stands for graph neural network, and VLP model stands for vision-language pre-training model.</span>
                     <br>
+                    <br>
                     <h3 class="title is-4"><span
-                            class="dvima">(1) Imitation Performance</span></h3>
+                            class="dvima">(1) Unsupervised real-value retrieval</span></h3>
+
+                    <img src="assets/images/UR.jpg" class="interpolation-image"
+                         alt="" style="display: block; margin-left: auto; margin-right: auto; width: 80%;"/>
+                    <br>
+                    <span style="font-size: 125%">
+                        <span style="font-weight: bold">The evolutionary tree of representative unsupervised real-value retrieval methods.</span>
+                    </span>
+                    <br>
+                    <br>
+                    <h3 class="title is-4"><span
+                            class="dvima">(2) Supervised real-value retrieval</span></h3>
+
+                    <img src="assets/images/SR.png" class="interpolation-image"
+                         alt="" style="display: block; margin-left: auto; margin-right: auto; width: 80%;"/>
+                    <br>
+                    <span style="font-size: 125%">
+                        <span style="font-weight: bold">The evolutionary tree of representative supervised real-value retrieval methods.</span>
+                    </span>
+                    <br>
+                    <br>
+                                        <h3 class="title is-4"><span
+                            class="dvima">(3) Unsupervised hashing retrieval</span></h3>
+
+                    <img src="assets/images/UH.png" class="interpolation-image"
+                         alt="" style="display: block; margin-left: auto; margin-right: auto; width: 80%;"/>
+                    <br>
+                    <span style="font-size: 125%">
+                        <span style="font-weight: bold">The evolutionary tree of representative unsupervised hashing retrieval methods.</span>
+                    </span>
+                    <br>
+                    <br>
+                                        <h3 class="title is-4"><span
+                            class="dvima">(4) Supervised hashing retrieval</span></h3>
+
+                    <img src="assets/images/SH.jpg" class="interpolation-image"
+                         alt="" style="display: block; margin-left: auto; margin-right: auto; width: 80%;"/>
+                    <br>
+                    <span style="font-size: 125%">
+                        <span style="font-weight: bold">The evolutionary tree of representative supervised hashing retrieval methods.</span>
+                    </span>
+                    <br>
+                    <br>
+                                        <h3 class="title is-4"><span
+                            class="dvima">(5) Cross-modal retrieval under special scenarios</span></h3>
 
                     <img src="assets/images/evaluation.png" class="interpolation-image"
                          alt="" style="display: block; margin-left: auto; margin-right: auto; width: 80%;"/>
                     <br>
                     <span style="font-size: 125%">
-                        <span style="font-weight: bold">Table1: The imitation performance on various settings, all results are reported using the best-behaved model checkpoints.</span> <i>(Full)</i> and <i>(Lang)</i> denote if the model is trained using unpaired vision data (i.e., vision data without language pairs); <i>Freeze-emb</i> refers to freezing the embedding layer of the fusion decoder; <i>Enriched</i> denote using GPT-4 enriched instructions. The <span style="color: #A0A0A0">gray</span> rows denote numerical results evaluated by our re-trained model. We re-implement RT-1 and take the original code of HULC provided by <a href="https://github.com/lukashermann/hulc">Mees et al</a>. All other results are reported by <a href="https://github.com/lukashermann/hulc">Mees et al</a>.
+                        <span style="font-weight: bold">A compilation of representative methods for cross-modal retrieval under special scenarios.</span>
                     </span>
                     <br>
                     <br>
-                    <br>
-
+                    
                     <h3 class="title is-4"><span
                         class="dvima">(2) Zero-shot Generalization</span></h3>
                     <p style="font-size: 125%">
