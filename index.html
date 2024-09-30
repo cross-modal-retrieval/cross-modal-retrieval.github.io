@@ -185,13 +185,13 @@
                     </p>
                     <img src="assets/images/within_text_image.jpg" class="interpolation-image" alt="" style="display: block; margin-left: auto; margin-right: auto; width: 90%;"/>
                     <p style="font-size: 130%; margin-top: 10px; margin-bottom: 50px; text-align: justify">
-                    <span style="font-weight: bold">A compilation of representative text-image cross-modal retrieval methods. </span>Above, CCA stands for canonical correlation analysis, CNN-RNN stands for convolutional neural network and recurrent neural network, GAN stands for generative adversarial network, GNN stands for graph neural network, and VLP model stands for vision-language pre-training model.</p>
+                    <span style="font-weight: bold">A compilation of representative text-image cross-modal retrieval methods. </span>Above, CNN-RNN stands for convolutional neural network and recurrent neural network, GAN stands for generative adversarial network, GNN stands for graph neural network, VLP model stands for vision-language pre-training model, and CMG model stands for cross-modal generation model.</p>
                     <h3 class="title is-4"><span class="dvima">2.1 &nbsp;&nbsp; Unsupervised real-value retrieval</span></h3>
                     <p style="font-size: 130%; margin-bottom: 20px; text-align: justify">
                         Unsupervised real-value retrieval aims to leverage the cooccurrence of multi-modal data, such as text and images appearing together, to capture their semantic correlation.  
-                        Depending on the design principles and learning strategies, it can be categorized into two types: early unsupervised realvalue retrieval and object-oriented image-text matching.<br>
-                        <span style="font-weight: bold;">1) Early unsupervised real-value retrieval</span> is subdivided into CCA methods, topic model methods, and auto-encoder methods;<br>
-                        <span style="font-weight: bold;">2) Object-oriented image-text matching</span> is subdivided into CNN-RNN methods, GNN methods, Transformer methods, VLP model methods, and cross-modal generation methods.
+                        Depending on the retrieval objectives, it can be categorized into two types: category-semantic cross-modal retrieval and imagetext matching.<br>
+                        <span style="font-weight: bold;">1) Category-semantic cross-modal retrieval</span> is subdivided into canonical correlation analysis methods, topic learning methods, and self-reconstructing learning methods;<br>
+                        <span style="font-weight: bold;">2) Image-text matching</span> is subdivided into CNN-RNN methods, GNN methods, Transformer methods, VLP model methods, and CMG model methods.
                     </p>
                     <img src="assets/images/UR.jpg" class="interpolation-image" alt="" style="display: block; margin-left: auto; margin-right: auto; width: 100%;"/>
                     <span style="font-size: 100%">
@@ -201,7 +201,7 @@
                     <p style="font-size: 130%; margin-bottom: 20px; text-align: justify">
                         Supervised real-value retrieval, benefiting from manual annotation, explores semantic association and category discrimination in multi-modal data to achieve cross-modal retrieval. 
                         It involves two primary approaches: shallow and deep supervised real-value retrieval, based on different learning principles.<br>
-                        <span style="font-weight: bold;">1) Shallow supervised real-value retrieval</span> is subdivided into CCA methods, dictionary learning methods, feature mapping methods, topic model methods, and metric learning methods;<br>
+                        <span style="font-weight: bold;">1) Shallow supervised real-value retrieval</span> is subdivided into canonical correlation analysis methods, dictionary learning methods, projection learning methods, topic learning methods, and metric learning methods;<br>
                         <span style="font-weight: bold;">2) Deep supervised real-value retrieval</span> is subdivided into CNN-RNN methods, GAN methods, GNN methods, and Transformer methods.
                     </p>
                     <img src="assets/images/SR.jpg" class="interpolation-image" alt="" style="display: block; margin-left: auto; margin-right: auto; width: 100%;"/>
@@ -212,8 +212,8 @@
                     <p style="font-size: 130%; margin-bottom: 20px; text-align: justify">
                         Unsupervised hashing retrieval, akin to unsupervised real-value retrieval, leverages co-occurring multi-modal data (e.g., text-image pairs) to capture semantic correlations. 
                         It is divided into shallow and deep types based on their principles.<br>
-                        <span style="font-weight: bold;">1) Shallow unsupervised hashing retrieval</span> is subdivided into matrix factorization methods, spectral graph methods, metric learning methods, and quantization methods;<br>
-                        <span style="font-weight: bold;">2) Deep unsupervised hashing retrieval</span> is subdivided into CNN-RNN methods, GAN methods, GNN methods, Transformer methods, and knowledge distillation methods.
+                        <span style="font-weight: bold;">1) Shallow unsupervised hashing retrieval</span> is subdivided into matrix factorization methods, spectral graph learning methods, metric learning methods, and quantization learning methods;<br>
+                        <span style="font-weight: bold;">2) Deep unsupervised hashing retrieval</span> is subdivided into CNN-RNN methods, GAN methods, GNN methods, Transformer methods, and distillation network methods.
                     </p>
                     <img src="assets/images/UH.png" class="interpolation-image" alt="" style="display: block; margin-left: auto; margin-right: auto; width: 100%;"/>
                     <span style="font-size: 100%">
@@ -223,8 +223,8 @@
                     <p style="font-size: 130%; margin-bottom: 20px; text-align: justify">
                         Supervised hashing retrieval, benefiting from manual annotation, effectively maps multi-modal data into a low-dimensional Hamming space for efficient search by exploiting category discrimination and semantic associations. 
                         It can be divided into shallow and deep supervised hashing retrieval, based on different principles.<br>
-                        <span style="font-weight: bold;">1) Shallow supervised hashing retrieval</span> is subdivided into matrix factorization methods and feature mapping methods;<br>
-                        <span style="font-weight: bold;">2) Deep supervised hashing retrieval</span> is subdivided into CNN-RNN methods, GAN methods, GNN methods, Transformer methods, memory network methods, and quantization methods.
+                        <span style="font-weight: bold;">1) Shallow supervised hashing retrieval</span> is subdivided into matrix factorization methods and projection learning methods;<br>
+                        <span style="font-weight: bold;">2) Deep supervised hashing retrieval</span> is subdivided into CNN-RNN methods, GAN methods, GNN methods, Transformer methods, memory network methods, and quantization network methods.
                     </p>
                     <img src="assets/images/SH.png" class="interpolation-image" alt="" style="display: block; margin-left: auto; margin-right: auto; width: 100%;"/>
                     <span style="font-size: 100%">
@@ -293,7 +293,7 @@
                         &nbsp;&nbsp;&nbsp;&nbsp; 5) Interactive and user-centric retrieval;
                     </p>
                     <p style="font-size: 130%; margin-bottom: 0px; text-align: justify">
-                        &nbsp;&nbsp;&nbsp;&nbsp; 6) Ethical challenges in cross-modal retrieval;
+                        &nbsp;&nbsp;&nbsp;&nbsp; 6) Responsible cross-modal retrieval;
                     </p>
                     <p style="font-size: 130%; margin-bottom: 0px; text-align: justify">
                         &nbsp;&nbsp;&nbsp;&nbsp; 7) Distributed cross-modal retrieval.
